@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhancement One: Software Design/Engineering | Jade Giles</title>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 25px;
+            color: #222;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .name {
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<a class="back-link" href="../../index.html">← Back to Portfolio</a>
+
+<h1>Enhancement One: Software Design/Engineering</h1>
+<p class="name">Jade Giles</p>
+
+<p>
+The artifact I chose for my software design and engineering enhancement is my GoalWeight Tracker, an Android app I originally created for my Mobile Architecture and Programming course around December 2025. It lets users create an account, log in, track their weight, and save a goal weight and phone number for SMS notification settings. I picked this app for my ePortfolio because it was something I had already built from start to finish, and I wanted to see how much I could improve it, using what I’ve learned so far.
+</p>
+
+<p>
+The original app worked, but my code review made it pretty clear that working and well designed are not always the same thing. I had database code mixed directly into the screens, which made it harder to separate what the app was doing from how it stored information. I added a Repository and ViewModel to give those responsibilities a better structure. I also improved how the app handles failed saves and deletes, added a Back to Weights button to the SMS settings screen, and tightened up input validation. For example, the app now checks that weight entries are greater than zero and that dates follow the MM/DD/YYYY format and are actual calendar dates.
+</p>
+
+<p>
+One of the biggest improvements was password security. The original app stored passwords as plain text, which was an issue I identified during my code review. I changed it to use salted PBKDF2 password hashing and updated the login process to verify the stored hashes. I also wanted to make sure that improving security didn’t lock out anyone who already had an account. Existing test accounts can log in with their original password, and the app replaces that plain text password with a hash after a successful login. I tested this process, confirmed the original account’s weight history was still there, and checked that a wrong password was rejected. I also fixed the database upgrade process. Previously, changing the database version would have dropped the tables and erased the data. The new version adds an index without deleting existing accounts or weight entries, and I tested the upgrade with data already in the app.
+</p>
+
+<p>
+These changes support the three course outcomes I planned to address in Module One. Outcome 3 is reflected in how I reviewed the original design and made decisions about organizing the code and handling data. Outcome 4 is shown through the improvements I made using Java, Android Studio, SQLite, and automated testing. Outcome 5 is especially important in this artifact because I addressed plain text password storage and the risk of losing user data during a database upgrade.
+</p>
+
+<p>
+The biggest thing I learned from this process is that going back to improve an existing project is a different challenge from building one for the first time. I couldn’t just change something and assume the rest of the app would be fine. I had to work in smaller steps, build often, and test what happened on the emulator. At one point, I accidentally reversed a condition in a login code, so the app rejected a username it had actually found. The project built successfully, but the login still didn’t work. That was a pretty good reminder that a successful build doesn’t always mean the app behaves the way it is intended to.
+</p>
+
+<p>
+I also learned to think more about what happens to information people have already saved. Fixing password storage and database upgrades wouldn’t have been much of an improvement if users lost access to their accounts or weight history along the way. To finish, I added three automated password tests, and all three passed. I also tested the app from login through adding and deleting entries, saving SMS settings, navigating between screens, and reopening the app to check that the data was still there. Being able to explain why I made these changes is just as important as getting the code to work. For my ePortfolio, I want someone looking at this project to understand both what the app does and how my approach to designing and improving software has developed. Overall, this enhancement gave me a better understanding of how design, security, and testing all connect. It also gave me a chance to show that I can do more than build an app once. I can go back, find its weak spots, and make it better.
+</p>
+
+</body>
+</html>
