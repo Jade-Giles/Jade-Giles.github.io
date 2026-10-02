@@ -157,6 +157,34 @@
       color: #38bdf8;
     }
 
+    /* Section headings */
+
+.section-label {
+  color: #38bdf8;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.about-section h2 {
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 25px;
+}
+
+.about-text {
+  max-width: 850px;
+}
+
+.about-text p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
     @media (max-width: 650px) {
       nav {
         flex-direction: column;
@@ -218,9 +246,36 @@
     </div>
   </header>
 
-<main> <section> <h2>About Me</h2> <p> Welcome to my portfolio. I am currently completing my bachelor's degree in Computer Science and have experience working with software development, databases, systems, and data structures and algorithms. This portfolio highlights projects that demonstrate my technical skills, problem solving abilities, and continued growth in computer science. </p> </section>
+<main> 
+<section id="about" class="about-section">
 
-<section>
+  <p class="section-label">About Me</p>
+  <h2>More than just the code.</h2>
+
+  <div class="about-text">
+    <p>
+      I am currently completing my bachelor's degree in Computer Science while
+      working professionally in IT and systems support. My experience has given
+      me the opportunity to work with software, databases, automation, data,
+      troubleshooting, and the people who rely on those systems every day.
+    </p>
+
+    <p>
+      I enjoy solving problems and figuring out better ways to make things work.
+      My projects have ranged from mobile applications and database driven
+      dashboards to algorithms and workplace automation, giving me experience
+      across several areas of computer science.
+    </p>
+
+    <p>
+      As I continue building my skills, I am working toward transitioning further
+      into software engineering with a long term interest in site reliability
+      engineering.
+    </p>
+  </div>
+
+</section>
+  
   <h2>Code Review</h2>
   <p>
     As part of my Computer Science Capstone, I completed a code review of the three artifacts selected for enhancement in my ePortfolio. Each review examines the existing 
