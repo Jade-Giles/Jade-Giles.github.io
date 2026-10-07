@@ -1,1 +1,152 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Algorithms and Data Structures Enhancement | Jade Giles</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #101b2d;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .page-container {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 50px 0 80px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .section-label {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            line-height: 1.15;
+            margin: 0 0 10px;
+        }
+
+        .name {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin: 0 0 40px;
+        }
+
+        .divider {
+            width: 70px;
+            height: 3px;
+            background: #38bdf8;
+            border: none;
+            margin: 0 0 40px;
+        }
+
+        .narrative {
+            font-size: 1.05rem;
+        }
+
+        .narrative p {
+            margin: 0 0 24px;
+        }
+
+        footer {
+            border-top: 1px solid #334155;
+            margin-top: 50px;
+            padding-top: 25px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .page-container {
+                width: min(100% - 30px, 900px);
+                padding-top: 30px;
+            }
+
+            .back-link {
+                margin-bottom: 30px;
+            }
+
+            .narrative {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="page-container">
+
+    <a class="back-link" href="../../index.html">← Back to Portfolio</a>
+
+    <header>
+        <p class="section-label">CS 499 Capstone</p>
+        <h1>Algorithms and Data Structures Enhancement</h1>
+        <p class="name">Jade Giles</p>
+        <hr class="divider">
+    </header>
+
+    <section class="narrative">
+
+        <p>
+            The artifact I selected for the algorithms and data structures category is my ABCU Course Advising Program, which I originally created in April 2025 for CS 300: Data Structures and Algorithms. The program was written in C++ and was designed to load course information from a file, store the courses in a binary search tree (BST), print the courses in alphanumeric order, and allow a user to search for a course and view its prerequisites. I wanted to include this artifact in my ePortfolio because the difference between the original and enhanced versions gives a clear example of how my understanding of algorithms and data structures has grown since taking CS 300. The original program worked for what I needed at the time, but looking back at it now, I could see several opportunities to make better choices with the way the course data was stored and evaluated.
+        </p>
+
+        <p>
+            The biggest enhancement I made was changing the original BST into a self balancing AVL tree. The original tree could become unbalanced depending on the order the courses were added. For example, inserting course numbers in increasing order could cause the tree to continue growing mostly to the right. I added height tracking, balance calculations, and left and right rotations so the tree can rebalance itself as courses are inserted. I also handled the four possible AVL imbalance cases: Left-left, Right-right, Left-right, and Right-left. This enhancement gave me a chance to think more about the trade offs involved when choosing a data structure. An unbalanced BST can have search and insertion performance degrade to O(n), while an AVL tree uses additional height tracking and rotations to maintain O(log n) performance. That means there is some additional work and complexity during insertion, but the result is more predictable performance as the amount of data grows. To test the enhancement, I purposely created course data in ascending order that would cause problems for the original BST. The test file contained seven courses inserted in ascending order. With the original BST, this insertion order would cause the tree to grow entirely to the right and reach a height of seven. Using the same data, the enhanced AVL tree maintained a height of three and reported that the tree was balanced while still printing all of the courses in the correct alphanumeric order. This gave me a measurable example of how the AVL tree prevents the worst case structure that could occur with the original BST.
+        </p>
+
+        <p>
+            My second enhancement focused on the prerequisite relationships between courses. I treated those relationships as a directed graph and added depth first search (DFS) to check for prerequisite cycles. A cycle could create an impossible situation where a course eventually requires itself through a chain of prerequisites. The DFS keeps track of courses that have not been visited, are currently being visited, or have already been completely checked. If the search reaches a course that is already part of the current path, the program knows a cycle exists. I tested this first with a valid set of prerequisites and then purposely changed the test data to create a cycle. The program correctly reported no cycle with the valid data and detected the cycle after I introduced one. I also improved the file loading logic so the program no longer reports that courses were loaded successfully when the input file could not actually be opened. Together, these changes demonstrate more than simply using a particular data structure or algorithm. They show that I can look at the problem being solved and choose an approach that fits that specific problem. The DFS cycle detection has a time complexity of O(V + E), where V represents the courses and E represents the prerequisite relationships between them. This serves a different purpose than the AVL tree operations. The AVL tree provides predictable O(log n) searching and insertion for individual courses, while DFS evaluates the relationships between courses across the prerequisite graph. Using both allowed me to choose a data structure and algorithm based on the specific problem each part of the program needed to solve.
+        </p>
+
+        <p>
+            These enhancements support the course outcomes I originally planned for this artifact, especially Outcomes 3 and 4. The AVL tree demonstrates my ability to evaluate an existing solution, recognize a weakness in the data structure being used, and apply algorithmic principles to improve it while considering the trade offs involved. The DFS enhancement demonstrates another type of problem that required a different structure and algorithm rather than trying to solve everything using the AVL tree. I also used C++, Visual Studio, testing, and debugging throughout the enhancement to implement and verify the changes. I do not think my planned outcome coverage needs to change because the completed enhancement demonstrates the areas I originally intended it to and gives me stronger examples of those skills than the original artifact did.
+        </p>
+
+        <p>
+            One of the biggest things I learned during this enhancement was the difference between code that builds successfully and code that actually works correctly. While testing the AVL tree, the program compiled without errors but initially reported that the tree was not balanced. Because I had purposely used ordered test data, I knew the balancing logic was not behaving the way it should. I eventually found that I had the comparison backwards in the Right-right case. I also caught a small mistake while implementing DFS where I had used “==” instead of “=” when setting the visitation state. After correcting the Right-right comparison, I reran the ordered course data and confirmed that the AVL tree remained balanced with a height of three while still producing the courses in the correct alphanumeric order. After correcting the DFS visitation state assignment, I tested both the valid prerequisite data and the intentionally created cycle again. The valid data completed without reporting a cycle, while the modified data correctly triggered the cycle warning. These tests helped confirm that the corrections fixed the algorithm behavior rather than simply allowing the program to compile. Working through these problems reinforced why it is important to test the actual behavior of an algorithm instead of assuming that a successful build means the program is correct. By the end of the enhancement, I had tested normal course loading, alphanumeric output, valid and invalid course searches, AVL balancing, a valid prerequisite graph, and an intentionally created prerequisite cycle. Overall, this enhancement gave me a much better understanding of how the choice and implementation of algorithms and data structures can affect how well a program works, and I think the difference between the original and enhanced versions shows how much my skills have developed since I originally created the program.
+        </p>
+
+    </section>
+
+    <footer>
+        Jade Giles • Computer Science ePortfolio
+    </footer>
+
+</main>
+
+</body>
+</html>
