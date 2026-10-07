@@ -1,0 +1,7 @@
+CSCI100,Introduction to Computer Science
+CSCI200,Data Structure,CSCI100
+CSCI300,Algorithms,CSCI200
+CSCI400,Advanced Computing,CSCI300
+CSCI500,Software Engineering,CSCI400
+MATH100,College Mathematics
+MATH200,Discrete Mathematics,MATH100
