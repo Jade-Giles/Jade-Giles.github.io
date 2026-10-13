@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title> Database Enhancement | Jade Giles</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #101b2d;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .page-container {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 50px 0 80px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .section-label {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            line-height: 1.15;
+            margin: 0 0 10px;
+        }
+
+        .name {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin: 0 0 40px;
+        }
+
+        .divider {
+            width: 70px;
+            height: 3px;
+            background: #38bdf8;
+            border: none;
+            margin: 0 0 40px;
+        }
+
+        .narrative {
+            font-size: 1.05rem;
+        }
+
+        .narrative p {
+            margin: 0 0 24px;
+        }
+
+        footer {
+            border-top: 1px solid #334155;
+            margin-top: 50px;
+            padding-top: 25px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .page-container {
+                width: min(100% - 30px, 900px);
+                padding-top: 30px;
+            }
+
+            .back-link {
+                margin-bottom: 30px;
+            }
+
+            .narrative {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="page-container">
+
+    <a class="back-link" href="../../index.html">← Back to Portfolio</a>
+
+    <header>
+        <p class="section-label">CS 499 Capstone</p>
+        <h1>Database Enhancement</h1>
+        <p class="name">Jade Giles</p>
+        <hr class="divider">
+    </header>
+
+    <section class="narrative">
+
+        <p>
+            The artifact I selected for the database portion of my ePortfolio is the Grazioso Salvare Animal Shelter Dashboard, which I originally created back in April of 2026 for my CS 340: Client/Server Development class. The project uses MongoDB to store and retrieve animal shelter records and a Python based dashboard that allows users to filter animals based on different rescue categories. It also displays the data through a breed chart and an interactive map showing the location of a selected animal. 
+        </p>
+
+        <p>
+            I chose this artifact because it gave me a chance to show more than just my ability to connect an application to a database. When I first went back to the project, I thought most of the work would involve improving the database and CRUD operations. Instead, one of the first challenges was simply getting the original project running again. The original version was created using the environment provided by the course, and I no longer had access to that environment or the original animal shelter dataset. Some of the tools used by the dashboard had also changed since I originally created it. Because of this, the enhancement became less about making a few changes to MongoDB and more about making the entire project easier to run, test, and maintain on its own. 
+        </p>
+
+        <p>
+           One of the biggest improvements I made was to the CRUD module. The original version relied on database information that was hard coded into the application. I changed this so the connection settings can be provided throughout environmental variables while still using local defaults for the project. I also added validation and error handling to the create, read, update, or delete operation. This helps prevent a mistake from changing or deleting every document in the collection.
+        </p>
+
+        <p>
+            I also wanted the database improvements to be based on how the application actually uses the data. The rescue filters search animals using their animal type, breed, and age, so I created a compound MongoDB index using those fields. Instead of adding an index just for the sake of saying that I added one, I wanted to match the queries already being performed by the dashboard. I also created a sample JSON dataset and a database setup script so the database could be rebuilt without needing the original course dataset. The setup script loads the sample records, avoids creating duplicates, and makes sure the database index is available. 
+        </p>
+
+        <p>
+            Testing that setup ended up being an important part of the enhancement. Once everything was working, I completely removed the sample records from the database and used the setup script to rebuild it from the included JSON file. All 10 records were restored successfully. I then reran my rescue filter tests and the tests for all four CRUD operations before running the dashboard again. This helped show that the project was not just working because of the environment I had been developing it in. It could actually be rebuilt from the files included with the enhanced artifact. 
+        </p>
+
+       <p>
+            The dashboard itself also needed some improvements to work with the enhanced database project. The original application used JupyterDash, which was no longer working correctly with the current version of Dash in my local environment. I updated the project to use the current Dash framework and was able to get the dashboard running locally in JupyterLab. I also improved the map callback. The original version accessed location, breed, and animal name using specific column positions. The enhanced version uses the actual field names, such as location_lat, location_long, breed, and name. This makes the code easier to understand and less likely to break if the order of the database fields change. I also added a README and requirements file so someone else has instructions for installing the dependencies, setting up the sample database, running the tests, and launching the dashboard. 
+        </p>
+
+       <p>
+            The course outcomes I planned to demonstrate most strongly with this enhancement were outcomes 4 and 5, and I believe the finished artifact still supports those choices. Outcome 4 focuses on using computer tools and techniques to create solutions that provide value. This enhancement required me to work with MongoDB, PyMongo, Python, Dash, database indexing, automated testing, and environment based configuration as part of one working application. More importantly, I had to figure out how those pieces worked together rather than treating the database as something separate from the rest of the application.
+        </p>
+
+       <p>
+            Outcome five focuses on developing a security mindset, which became more important during the enhancement than I originally expected. Removing hard coded configuration was one improvement, but I think validation added to the CRUD operations demonstrated this outcome even better. In particular, preventing empty update and delete queries made me think about what could happen when a method receives technically valid input that could still have an unintended result. I did not add authentication to the local MongoDB environment, so I would not consider the database itself fully secured. Instead this enhancement shows progress toward thinking about security and data protection while designing the application rather than waiting for something to go wrong. 
+        </p>
+
+       <p>
+            The biggest thing I learned from this enhancement was how much a working program can depend on the environment where it was originally created. When I completed the original project, I was mostly concerned with getting it to meet the requirements and work in the environment provided for the course. Coming back to it later showed me that being able to run the code myself does not necessarily mean someone else could take the project and do the same thing. Rebuilding the project locally forced me to think more about dependencies, configuration, sample data, setup instructions, and testing. 
+        </p>
+
+       <p>
+            There was definitely a few challenges along the way. I had to recreate enough sample data to properly test the rescue filters, get MongoDB running locally, and work through changes between JupyterDash and the current Dash framework. There were also smaller issues, such as the original map relying on column positions that no longer matched the data being returned. None of these problems required one big fix. Most of the process involved finding one issue, fixing it, testing again, and then moving on to the next one. 
+        </p>
+
+       <p>
+            Overall I think the enhanced version is a much better representation of my database and software skills than the original artifact by itself. The database can now be recreated from the files included in the project, the CRUD operations have additional validation and safeguards, the index reflects the application’s actual queries, and the dashboard works with the updated environment. More importantly, working through the enhancement changed how I think about what it means for a project to actually be finished. It it not enough for the code to work once on my computer. A stronger project should be understandable, testable, and reproducible outside the exact environment where it was originally developed. 
+        </p>
+
+    </section>
+
+    <footer>
+        Jade Giles • Computer Science ePortfolio
+    </footer>
+
+</main>
+
+</body>
+</html>
