@@ -1,0 +1,112 @@
+[
+  {
+  "animal_id": "A100001",
+  "animal_type": "Dog",
+  "name": "Buddy",
+  "breed": "Labrador Retriever Mix",
+  "sex_upon_outcome": "Neutered Male",
+  "age_upon_outcome_in_weeks": 52,
+  "outcome_type": "Adoption",
+  "location_lat": 30.2672,
+  "location_long": -97.7431
+  },
+  {
+    "animal_id": "A100002",
+    "animal_type": "Dog",
+    "name": "Zuma",
+    "breed": "Labrador Retriever Mix",
+    "sex_upon_outcome": "Neutered Male",
+    "age_upon_outcome_in_weeks": 78,
+    "outcome_type": "Adoption",
+    "location_lat": 30.3450,
+    "location_long": -97.7650
+  },
+  {
+    "animal_id": "A100003",
+    "animal_type": "Dog",
+    "name": "Everest",
+    "breed": "Alaskan Malamute Mix",
+    "sex_upon_outcome": "Spayed Female",
+    "age_upon_outcome_in_weeks": 104,
+    "outcome_type": "Adoption",
+    "location_lat": 30.4082,
+    "location_long": -97.7131
+  },
+  {
+    "animal_id": "A100004",
+    "animal_type": "Dog",
+    "name": "Chase",
+    "breed": "German Shepherd Mix",
+    "sex_upon_outcome": "Neutered Male",
+    "age_upon_outcome_in_weeks": 60,
+    "outcome_type": "Adoption",
+    "location_lat": 30.1945,
+    "location_long": -97.6687
+  },
+  {
+    "animal_id": "A100005",
+    "animal_type": "Dog",
+    "name": "Marshall",
+    "breed": "Doberman Pinscher Mix",
+    "sex_upon_outcome": "Neutered Male",
+    "age_upon_outcome_in_weeks": 90,
+    "outcome_type": "Adoption",
+    "location_lat": 30.3264,
+    "location_long": -97.8970
+  },
+  {
+    "animal_id": "A100006",
+    "animal_type": "Dog",
+    "name": "Skye",
+    "breed": "Rottweiler Mix",
+    "sex_upon_outcome": "Spayed Female",
+    "age_upon_outcome_in_weeks": 30,
+    "outcome_type": "Transfer",
+    "location_lat": 30.1555,
+    "location_long": -97.8238
+  },
+  {
+    "animal_id": "A100007",
+    "animal_type": "Dog",
+    "name": "Rocky",
+    "breed": "Bloodhound Mix",
+    "sex_upon_outcome": "Neutered Male",
+    "age_upon_outcome_in_weeks": 40,
+    "outcome_type": "Adoption",
+    "location_lat": 30.4570,
+    "location_long": -97.8050
+  },
+  {
+    "animal_id": "A100008",
+    "animal_type": "Dog",
+    "name": "Rubble",
+    "breed": "Bulldog Mix",
+    "sex_upon_outcome": "Neutered Male",
+    "age_upon_outcome_in_weeks": 65,
+    "outcome_type": "Return to Owner",
+    "location_lat": 30.2240,
+    "location_long": -97.9250
+  },
+  {
+    "animal_id": "A100009",
+    "animal_type": "Cat",
+    "name": "Mayor Humdinger",
+    "breed": "Domestic Shorthair Mix",
+    "sex_upon_outcome": "Neutered Male",
+    "age_upon_outcome_in_weeks": 48,
+    "outcome_type": "Adoption",
+    "location_lat": 30.3650,
+    "location_long": -97.6500
+  },
+  {
+    "animal_id": "A100010",
+    "animal_type": "Dog",
+    "name": "Tracker",
+    "breed": "Chihuahua Mix",
+    "sex_upon_outcome": "Neutered Male",
+    "age_upon_outcome_in_weeks": 12,
+    "outcome_type": "Transfer",
+    "location_lat": 30.1050,
+    "location_long": -97.7350
+  }
+]
